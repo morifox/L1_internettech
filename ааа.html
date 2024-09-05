@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Большая анимация мега сочной машины</title>
+  <style>
+    .car-animation {
+      width: 200px; /* Увеличим размеры контейнера */
+      height: 150px;
+    }
+    @keyframes move {
+      0% {
+        transform: translateX(0);
+      }
+
+      50% {
+        transform: translateX(-5px);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+    .wheel1 {
+      animation: move 0.9s linear infinite;
+    }
+    .wheel2 {
+      animation: move 0.9s linear infinite;
+    }
+    .wheel3 {
+      animation: move 0.9s linear infinite;
+    }
+
+    @keyframes moveRotate {
+      0% {
+        transform: translateX(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateX(-10px) rotate(2deg);
+      }
+
+      100% {
+        transform: translateX(0) rotate(1deg);
+      }
+    }
+    .wheel3 {
+      animation: moveRotate 1s linear infinite;
+    }
+    @keyframes moveForwardBackward {
+      0% {
+        transform: translateX(0);
+      }
+
+      50% {
+        transform: translateX(10px);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .car-svg {
+      animation: moveForwardBackward 3.7s linear infinite alternate;
+    }
+
+    @media only screen and (max-device-width: 812px) and (orientation: portrait) {
+      .car-svg {
+        width: 30vw; /* Для адаптации под ширину экрана iPhone X */
+      }
+
+
+    }
+
+    /* тут блеск на машине:*/
+    .flare {
+      position: absolute;
+      top: 0;
+      height: 10%;
+      width: 30%;
+      transform: skewX(-35deg);
+      left: -20%;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.15)); /* ПРОЗРАЧНОСТЬ - ОТ 0.01 ДО 0.07*/
+      animation: flareAnimation 5s infinite linear;
+    }
+
+    @keyframes flareAnimation {
+      0% {
+        left: -50%;
+      }
+
+      100% {
+        left: 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="car-animation">
+  <!-- SVG с анимацией машины -->
+  <svg class="car-svg" viewBox="0 0 210 250" xmlns="http://www.w3.org/2000/svg" >
+
+    <rect x="10" y="60" width="230" height="30" fill="#333" />
+
+    <path d="M10,60 L50,30 Q60,10 160,43 T100,60 Z" fill="#555" />
+    <path d="M60,40 L50,30 Q60,10 130,29 T100,40 Z" fill="#333" />
+    <rect x="150" y="60" width="50" height="30" fill="#333" />
+    <circle cx="228" cy="38" r="36" fill="white" class="wheel" />
+
+    <!-- Первое окно -->
+    <path d="M 41 40 Q 80 5 78 40 T 76 90 Q 90 65 41 70 Z" fill="#333" />
+
+    <!-- Второе окно -->
+    <path d="M 105 25 Q 105 25 145 40 T 145 90 Q 105 65 125 70 Z" fill="#333" />
+
+    <!-- Колеса -->
+    <circle cx="50" cy="90" r="17" fill="#555" class="wheel2" />
+    <circle cx="150" cy="90" r="17" fill="#555" class="wheel2" /> <!-- передние серые колеса-->
+
+    <circle cx="60" cy="88" r="14" fill="#333" class="wheel" /> <!-- тени-->
+    <circle cx="158" cy="88" r="15" fill="#333" class="wheel" /><!-- тени-->
+
+    <circle cx="60" cy="87" r="15" fill="#333" class="wheel3" /> <!-- черные штуки-->
+    <circle cx="158" cy="87" r="15" fill="#333" class="wheel3" /><!-- черные вертящиеся штуки-->
+    <!-- Диски -->
+    <circle cx="50" cy="90" r="10" fill="#ccc" class="wheel1" />
+    <circle cx="150" cy="90" r="10" fill="#ccc" class="wheel1" />
+
+    <span class="flare"></span></svg> <!-- подключение блеска на машине-->
+</div>
+</body>
+</html>

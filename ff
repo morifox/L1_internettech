@@ -1,0 +1,1064 @@
+/* Основные стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+    box-sizing: border-box;
+}
+
+/* Темы */
+body.day-theme {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.night-theme {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+}
+
+/* Заголовок */
+header {
+    background-color: #34495e;
+    color: white;
+    padding: 10px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* Навигация */
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Кнопки */
+button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #c0392b;
+}
+
+/* Основной контент */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+select, input[type="color"], input[type="number"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+select:focus, input[type="color"]:focus, input[type="number"]:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* Стили для баннера */
+.banner {
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Изменено с calc(100% - 40px) на 100% */
+    max-width: 100%; /* Убедитесь, что баннер не превышает ширину экрана */
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+
+.slider {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Анимация для переключения слайдов */
+@keyframes slideAnimation {
+    0% {
+        opacity: 0; /* Начальная прозрачность */
+        transform: translateX(+100%); /* Начальное положение (влево за пределы видимости) */
+    }
+    100% {
+        opacity: 1; /* Конечная прозрачность */
+        transform: translateX(0); /* Конечное положение (центр) */
+    }
+}
+
+.slider img {
+    width: 100%;
+    height: 400px; /* Адаптивная высота */
+    object-fit: cover;
+    display: block;
+    animation: slideAnimation 4s ease;
+}
+
+.banner img {
+    max-width: 100%;
+    height: 400px;
+}
+@media (max-width: 768px) {
+    .slider img {
+        height: 400px;
+    }
+}
+.prev,
+.next {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: #c0392b;
+}
+
+/* Стили для мобильных устройств */
+/* Мобильные стили */
+@media (max-width: 768px) {
+    .banner {
+        padding: 10px;
+    }
+
+    .banner img {
+        width: 100%;
+        max-width: none;
+        height: 300px; /* Адаптивная высота */
+        margin: 0 auto;
+    }
+
+    .prev,
+    .next {
+        padding: 5px 10px;
+    }
+}
+
+/* Карта */
+#map {
+    width: 100%;
+    height: 400px;
+    background-color: grey;
+}
+
+/* Формы */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label, form input, form select, form button {
+    margin-bottom: 10px;
+}
+
+/* Анимация */
+#animation-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#car-animation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#wheels {
+    display: flex;
+    gap: 20px;
+}
+
+#wheel1 {
+    width: 50px;
+    height: 50px;
+    background-color: gray;
+    border-radius: 50%;
+    animation: rotateWheel 2s linear infinite; /* анимация вращения */
+}
+
+@keyframes rotateWheel {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#car-body {
+    width: 100px;
+    height: 50px;
+    background-color: blue;
+    border-radius: 10px;
+}
+
+#confirmation {
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+
+#buy-button {
+    display: block;
+    margin-top: 20px;
+}
+
+/* Отзывы */
+.reviews-section {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.review {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Часто задаваемые вопросы */
+.faq-section {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.faq-item {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Футер */
+footer {
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+    nav {
+        display: none;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .banner {
+        flex-direction: column;
+    }
+
+    .banner img {
+        margin-bottom: 10px;
+    }
+}
+
+/* Тёмная тема для дополнительных элементов */
+body.night-theme .banner, body.night-theme .reviews-section, body.night-theme .faq-section {
+    background-color: #34495e;
+    color: #ecf0f1;
+}
+
+body.night-theme .review, body.night-theme .faq-item {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #2c3e50;
+}
+
+/* Секция автомобилей */
+#cars {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.car {
+    flex: 0 1 calc(33.33% - 20px);
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+}
+
+.car:hover {
+    transform: scale(1.05);
+}
+
+.car-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.car-info {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-sizing: border-box;
+}
+
+.car-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #000;
+    text-align: center;
+}
+
+.car-description {
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+
+.car a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.car a:hover {
+    text-decoration: underline;
+}
+
+/* Секция статей */
+
+
+.article-title {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #000;
+    text-align: center;
+}
+
+.article-text {
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+}
+
+.read-more {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+    .article, .car {
+        flex: 0 1 calc(50% - 20px);
+    }
+}
+
+.theme-toggle {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.theme-toggle::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked + .theme-toggle {
+    background-color: #4CAF50;
+}
+
+input[type="checkbox"]:checked + .theme-toggle::after {
+    transform: translateX(15px);
+}
+
+/* Стили для формы */
+#contact-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#contact-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="tel"],
+#contact-form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#contact-form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #e74c3c;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#contact-form button[type="submit"]:hover {
+    background-color: #c0392b;
+}
+
+#configurator {
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+#configurator h2 {
+    margin-bottom: 20px;
+}
+
+#car-config-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#car-config-form label {
+    margin-bottom: 10px;
+}
+
+#car-config-form select,
+#car-config-form input[type="number"],
+#car-config-form input[type="color"],
+#car-config-form button {
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#price-output {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#buy-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#buy-button:hover {
+    background-color: #0056b3;
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+    #configurator {
+        width: 95%;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden; /* Убираем горизонтальную прокрутку */
+    }
+
+    .header-container, main {
+        padding: 0 10px; /* Увеличиваем отступы, чтобы не было горизонтальной прокрутки */
+    }
+}
+
+/* Планшетные стили */
+@media (min-width: 769px) and (max-width: 1024px) {
+    nav ul li {
+        margin: 0 5px;
+    }
+
+    .article, .car {
+        flex: 0 1 calc(33% - 20px);
+    }
+}
+
+#cars, #articles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.car, .article {
+    flex: 0 1 calc(33.33% - 20px);
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+    max-width: 100%; /* Убедитесь, что контейнер не превышает ширину экрана */
+}
+
+.car:hover, .article:hover {
+    transform: scale(1.05);
+}
+
+.car-image, .article-image {
+    width: 100%;
+    height: auto; /* Адаптивная высота */
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.car-info, .article-info {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-sizing: border-box;
+}
+
+.car-title, .article-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #000;
+    text-align: center;
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+    .car, .article {
+        flex: 0 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-container h1 {
+        margin-bottom: 10px;
+    }
+
+    .nav-toggle {
+        margin-right: 10px;
+        order: 1;
+    }
+
+    #theme-switch {
+        order: 2;
+    }
+}
+/* Анимация для вращения колес */
+car-animation {
+    width: 1200px; /* Увеличим размеры контейнера */
+    height: 1500px;
+}
+@keyframes move {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+.wheel1 {
+    animation: move 0.9s linear infinite;
+}
+.wheel2 {
+    animation: move 0.9s linear infinite;
+}
+.wheel3 {
+    animation: move 0.9s linear infinite;
+}
+
+@keyframes moveRotate {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(-10px) rotate(2deg);
+    }
+
+    100% {
+        transform: translateX(0) rotate(1deg);
+    }
+}
+.wheel3 {
+    animation: moveRotate 1s linear infinite;
+}
+@keyframes moveForwardBackward {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.car-svg {
+    animation: moveForwardBackward 3.7s linear infinite alternate;
+}
+
+/* тут блеск на машине:*/
+.flare {
+    position: absolute;
+    top: 0;
+    height: 10%;
+    width: 30%;
+    transform: skewX(-35deg);
+    left: -20%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.15)); /* ПРОЗРАЧНОСТЬ - ОТ 0.01 ДО 0.07*/
+    animation: flareAnimation 5s infinite linear;
+}
+
+@keyframes flareAnimation {
+    0% {
+        left: -50%;
+    }
+
+    100% {
+        left: 50%;
+    }
+}
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-switch');
+    const body = document.body;
+    const carConfigForm = document.getElementById('car-config-form');
+    const priceOutput = document.getElementById('price');
+    const buyButton = document.getElementById('buy-button');
+    const animationContainer = document.getElementById('animation-container');
+    const navToggle = document.getElementById('nav-toggle');
+    const navbar = document.getElementById('navbar');
+    const contactForm = document.getElementById('contact-form');
+
+    // Theme switcher
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('night-theme');
+        body.classList.toggle('day-theme');
+        const currentTheme = body.classList.contains('night-theme') ? 'night' : 'day';
+        localStorage.setItem('theme', currentTheme);
+    });
+
+    // Load theme from localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'night') {
+        body.classList.remove('day-theme');
+        body.classList.add('night-theme');
+        themeToggle.checked = true; // Устанавливаем тумблер во включенное состояние
+    } else if (savedTheme === 'day') {
+        body.classList.remove('night-theme');
+        body.classList.add('day-theme');
+        themeToggle.checked = false; // Устанавливаем тумблер в выключенное состояние
+    }
+
+    // Car configurator functionality
+    document.getElementById('calculate-price').addEventListener('click', () => {
+        const brand = carConfigForm.brand.value;
+        const bodyType = carConfigForm['body-type'].value;
+        const engine = carConfigForm.engine.value;
+        const color = carConfigForm.color.value;
+        const interior = carConfigForm.interior.value;
+
+        // Simplified price calculation
+        let price = 1000000; // base price
+        if (brand === 'brand2') price += 200000;
+        if (bodyType === 'suv') price += 300000;
+        price += engine * 50000;
+        if (interior === 'leather') price += 100000;
+
+        priceOutput.textContent = price;
+        localStorage.setItem('lastPrice', price);
+    });
+
+    // Load last price from localStorage
+    const lastPrice = localStorage.getItem('lastPrice');
+    if (lastPrice) {
+        priceOutput.textContent = lastPrice;
+    }
+
+    // Buy button functionality with animation
+    buyButton.addEventListener('click', () => {
+        const carData = {
+            brand: carConfigForm.brand.value,
+            bodyType: carConfigForm['body-type'].value,
+            engine: carConfigForm.engine.value,
+            color: carConfigForm.color.value,
+            interior: carConfigForm.interior.value,
+            price: priceOutput.textContent
+        };
+
+        localStorage.setItem('carData', JSON.stringify(carData));
+
+        animationContainer.innerHTML = `
+            <div id="car-animation">
+                <svg class="car-svg" viewBox="0 0 210 250" xmlns="http://www.w3.org/2000/svg" >
+
+            <rect x="10" y="60" width="230" height="30" fill="#333" />
+
+            <path d="M10,60 L50,30 Q60,10 160,43 T100,60 Z" fill="#555" />
+            <path d="M60,40 L50,30 Q60,10 130,29 T100,40 Z" fill="#333" />
+            <rect x="150" y="60" width="50" height="30" fill="#333" />
+            <circle cx="228" cy="38" r="36" fill="white" class="wheel" />
+
+            <!-- Первое окно -->
+            <path d="M 41 40 Q 80 5 78 40 T 76 90 Q 90 65 41 70 Z" fill="#333" />
+
+            <!-- Второе окно -->
+            <path d="M 105 25 Q 105 25 145 40 T 145 90 Q 105 65 125 70 Z" fill="#333" />
+
+            <!-- Колеса -->
+            <circle cx="50" cy="90" r="17" fill="#555" class="wheel2" />
+            <circle cx="150" cy="90" r="17" fill="#555" class="wheel2" /> <!-- передние серые колеса-->
+
+            <circle cx="60" cy="88" r="14" fill="#333" class="wheel" /> <!-- тени-->
+            <circle cx="158" cy="88" r="15" fill="#333" class="wheel" /><!-- тени-->
+
+            <circle cx="60" cy="87" r="15" fill="#333" class="wheel3" /> <!-- черные штуки-->
+            <circle cx="158" cy="87" r="15" fill="#333" class="wheel3" /><!-- черные вертящиеся штуки-->
+            <!-- Диски -->
+            <circle cx="50" cy="90" r="10" fill="#ccc" class="wheel1" />
+            <circle cx="150" cy="90" r="10" fill="#ccc" class="wheel1" />
+
+            <span class="flare"></span></svg> <!-- подключение блеска на машине-->
+                <div id="confirmation">Заявка принята!</div>
+            </div>
+        `;
+        animationContainer.style.display = 'block';
+        setTimeout(() => {
+            animationContainer.style.display = 'none';
+        }, 3000);
+    });
+
+    // Check for saved car data
+    const savedCarData = localStorage.getItem('carData');
+    if (savedCarData) {
+        const carData = JSON.parse(savedCarData);
+        console.log('Saved car data:', carData);
+        // Display saved car data or notify user
+    }
+
+    // Initialize Google Map
+    function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: 40.7128, lng: -74.0060 },
+            zoom: 14,
+        });
+        const marker = new google.maps.Marker({
+            position: { lat: 40.7128, lng: -74.0060 },
+            map: map,
+        });
+    }
+
+    // Load Google Maps script dynamically
+    const mapScript = document.createElement('script');
+    mapScript.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap`;
+    mapScript.async = true;
+    document.head.appendChild(mapScript);
+
+    // Contact form submission
+    contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        alert('Ваша заявка принята!');
+    });
+
+    // Hamburger menu toggle
+    navToggle.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+            navbar.style.display = navbar.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+
+    // Close navbar when clicking outside in mobile view
+    document.addEventListener('click', (event) => {
+        if (!event.target.closest('header') && window.innerWidth <= 768) {
+            navbar.style.display = 'none';
+        }
+    });
+
+    // Show navbar on desktop view
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            navbar.style.display = 'flex';
+        } else {
+            navbar.style.display = 'none';
+        }
+    });
+
+    // Initial check for navbar display on page load
+    if (window.innerWidth > 768) {
+        navbar.style.display = 'flex';
+    }
+
+    // Additional scripts for new elements
+    const reviewsSection = document.getElementById('reviews');
+    const faqSection = document.getElementById('faq');
+
+    // Adding reviews dynamically (example)
+    const reviews = [
+        { text: "Отличный сервис! Очень доволен покупкой.", author: "Иван Петров" },
+    ];
+
+    reviews.forEach(review => {
+        const reviewElement = document.createElement('div');
+        reviewElement.classList.add('review');
+        reviewElement.innerHTML = `
+        <p>"${review.text}"</p>
+        <p>- ${review.author}</p>
+    `;
+        reviewsSection.appendChild(reviewElement);
+    });
+
+
+    // Adding FAQ items dynamically (example)
+    const faqs = [
+        {
+            question: "Как записаться на тест-драйв?",
+            answer: "Вы можете записаться на тест-драйв, заполнив форму на нашем сайте или позвонив по телефону."
+        },
+    ];
+
+    faqs.forEach(faq => {
+        const faqItem = document.createElement('div');
+        faqItem.classList.add('faq-item');
+        faqItem.innerHTML = `
+            <h3>${faq.question}</h3>
+            <p>${faq.answer}</p>
+        `;
+        faqSection.appendChild(faqItem);
+    });
+
+    // Adding event listeners to details buttons
+    const detailsButtons = document.querySelectorAll('.details-button');
+
+    detailsButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            const detailsUrl = button.getAttribute('href');
+            window.location.href = detailsUrl;
+        });
+    });
+});
+
+const wheels = document.querySelectorAll('.wheel');
+
+wheels.forEach(wheel => {
+    let rotation = 0;
+
+    const rotate = () => {
+        rotation += 10;
+        wheel.style.transform = `rotate(${rotation}deg)`;
+        requestAnimationFrame(rotate);
+    };
+
+    rotate();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const carsData = {
+        car1: {
+            images: ['car1_1.jpg', 'car1_2.jpg'],
+            details: {
+                engine: '4.0L V6',
+                transmission: 'Автомат',
+                year: 2011,
+                mileage: '80,000 km',
+                price: '4 680 000 ₽',
+            },
+        },
+        car2: {
+            images: ['car2_1.jpg', 'car2_2.jpg'],
+            details: {
+                engine: '3.0L I6',
+                transmission: 'Автомат',
+                year: 2010,
+                mileage: '90,000 km',
+                price: '1 554 000 ₽',
+            },
+        },
+    };
+
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modal-car-content');
+    const closeModal = document.querySelector('.close');
+
+    document.querySelectorAll('.car').forEach(car => {
+        car.addEventListener('click', () => {
+            const carId = car.getAttribute('data-car');
+            const carData = carsData[carId];
+            if (carData) {
+                modalContent.innerHTML = `
+          <div class="modal-images">
+            ${carData.images.map(img => `<img src="${img}" alt="Car Image">`).join('')}
+          </div>
+          <div class="modal-details">
+            <h2>${car.querySelector('.car-title').innerText}</h2>
+            <p><strong>Двигатель:</strong> ${carData.details.engine}</p>
+            <p><strong>Коробка:</strong> ${carData.details.transmission}</p>
+            <p><strong>Год выпуска:</strong> ${carData.details.year}</p>
+            <p><strong>Пробег:</strong> ${carData.details.mileage}</p>
+            <p><strong>Цена:</strong> ${carData.details.price}</p>
+          </div>
+        `;
+                modal.style.display = 'block';
+            }
+        });
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});

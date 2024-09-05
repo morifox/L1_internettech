@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Автомобильный центр</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="header-container">
+    <h1>Автомобильный центр</h1>
+    <input type="checkbox" id="theme-switch">
+    <label for="theme-switch" class="theme-toggle"></label>
+    <button id="nav-toggle" class="nav-toggle">&#9776;</button>
+  </div>
+  <nav id="navbar">
+    <ul>
+      <li><a href="#configurator">Конфигуратор</a></li>
+      <li><a href="#cars">Продажа авто</a></li>
+      <li><a href="#location">Местоположение</a></li>
+      <li><a href="#contact">Запись</a></li>
+      <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="banner">
+  <div class="slider">
+    <img src="1.png" alt="Первое изображение">
+    <img src="2.png" alt="Второе изображение">
+    <img src="3.png" alt="Третье изображение">
+    <img src="4.png" alt="Четвёртое изображение">
+    <img src="5.png" alt="Пятое изображение">
+    <img src="6.png" alt="Шестое изображение">
+  </div>
+  <button class="prev">Назад</button>
+  <button class="next">Вперед</button>
+</section>
+
+<main>
+  <section id="configurator">
+    <h2>Конфигуратор автомобилей</h2>
+    <form id="car-config-form">
+      <label for="brand">Бренд:</label>
+      <select id="brand" name="brand">
+        <option value="brand1">Brand 1</option>
+        <option value="brand2">Brand 2</option>
+      </select>
+      <label for="body-type">Тип кузова:</label>
+      <select id="body-type" name="body-type">
+        <option value="sedan">Седан</option>
+        <option value="suv">SUV</option>
+      </select>
+      <label for="engine">Объем двигателя:</label>
+      <input type="number" id="engine" name="engine" min="1" max="5" step="0.1">
+      <label for="color">Цвет:</label>
+      <input type="color" id="color" name="color">
+      <label for="interior">Обивка салона:</label>
+      <select id="interior" name="interior">
+        <option value="leather">Кожа</option>
+        <option value="fabric">Ткань</option>
+      </select>
+      <button type="button" id="calculate-price">Рассчитать цену</button>
+    </form>
+    <p id="price-output">Цена: <span id="price">0</span> руб.</p>
+    <button id="buy-button">Купить</button>
+  </section>
+  <section id="cars">
+    <div class="car" data-car="car1">
+      <img src="car1.jpg" alt="Автомобиль 1" class="car-image">
+      <div class="car-info">
+        <h3 class="car-title">TOYOTA PRADO150 2011 год</h3>
+        <p class="car-price">Цена: 4 680 000 ₽.</p>
+      </div>
+    </div>
+    <div class="car" data-car="car2">
+      <img src="car2.jpg" alt="Автомобиль 2" class="car-image">
+      <div class="car-info">
+        <h3 class="car-title">BMW Х5 РЕСТАЙЛИНГ 2010 год</h3>
+        <p class="car-price">Цена: 1 554 000 ₽.</p>
+      </div>
+    </div>
+    <div class="car" data-car="car3">
+      <img src="car3.jpg" alt="Автомобиль 3" class="car-image">
+      <div class="car-info">
+        <h3 class="car-title">Hyundai Solaris 2011 год</h3>
+        <p class="car-price">Цена: 1 260 000 ₽.</p>
+      </div>
+    </div>
+    <div class="car" data-car="car4">
+      <img src="car4.jpg" alt="Автомобиль 3" class="car-image">
+      <div class="car-info">
+        <h3 class="car-title">Mercedes 2002 год</h3>
+        <p class="car-price">Цена: 540 000 ₽.</p>
+      </div>
+    </div>
+    <div class="car" data-car="car5">
+      <img src="car5.jpg" alt="Автомобиль 3" class="car-image">
+      <div class="car-info">
+        <h3 class="car-title">Renault 2012 год</h3>
+        <p class="car-price">Цена: 540 000 ₽.</p>
+      </div>
+    </div>
+    <div class="car" data-car="car6">
+      <img src="car6.jpg" alt="Автомобиль 3" class="car-image">
+      <div class="car-info">
+        <h3 class="car-title">Renault Daster 4х4 2012 год</h3>
+        <p class="car-price">Цена: 1 476 000 ₽</p>
+      </div>
+    </div>
+  </section>
+  <section id="location">
+    <h2>Наше местоположение</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22835.833646174355!2d-74.005941552207!3d40.7127834852865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1648748449877!5m2!1sen!2s" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+  </section>
+
+  <section id="contact">
+    <h2>Запись на тест-драйв / ремонт</h2>
+    <form id="contact-form">
+      <label for="name">Имя:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="phone">Телефон:</label>
+      <input type="tel" id="phone" name="phone" required>
+      <label for="service">Услуга:</label>
+      <select id="service" name="service">
+        <option value="test-drive">Тест-драйв</option>
+        <option value="repair">Ремонт</option>
+      </select>
+      <button type="submit">Отправить</button>
+    </form>
+  </section>
+  <section id="reviews">
+    <h2>Отзывы клиентов</h2>
+    <div class="review">
+      <p>"Отличный сервис! Очень доволен покупкой."</p>
+      <p>- Иван Петров</p>
+    </div>
+    <div class="review">
+      <p>"Хороший выбор автомобилей и профессиональный подход."</p>
+      <p>- Анна Сидорова</p>
+    </div>
+  </section>
+  <section id="faq">
+    <h2>Часто задаваемые вопросы</h2>
+    <div class="faq-item">
+      <h3>Как записаться на тест-драйв?</h3>
+      <p>Вы можете записаться на тест-драйв, заполнив форму на нашем сайте или позвонив по телефону.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Какие условия гарантии на автомобили?</h3>
+      <p>Мы предоставляем гарантию на все автомобили сроком на 2 года или 50 000 км пробега.</p>
+    </div>
+  </section>
+
+  <section id="articles">
+    <div class="article">
+      <img src="article1.jpg" alt="Статья 1" class="article-image">
+      <div class="article-info">
+        <h3 class="article-title">Какие классы автомобилей существуют и в чем их отличия</h3>
+        <p class="article-text">Авто классифицируют по ряду параметров: от мощности двигателя до типа кузова. О том, какие есть классы автомобилей, и в чем их разница,...</p>
+        <a href="#" class="read-more">Продолжить чтение</a>
+      </div>
+    </div>
+    <div class="article">
+      <img src="article2.jpg" alt="Статья 2" class="article-image">
+      <div class="article-info">
+        <h3 class="article-title">Что такое VIN и где его найти: подробная инструкция</h3>
+        <p class="article-text">VIN номер автомобиля ― это главный опознавательный символ в машине. В статье разберем, для чего он нужен и где его найти.</p>
+        <a href="#" class="read-more">Продолжить чтение</a>
+      </div>
+    </div>
+    <div class="article">
+      <img src="article3.jpg" alt="Статья 3" class="article-image">
+      <div class="article-info">
+        <h3 class="article-title">Мифы о заправке полного бака</h3>
+        <p class="article-text">Одни автовладельцы предпочитают заправляться до полного бака, чтобы чувствовать себя спокойно и уверенно. Другие – по мере необходимости,...</p>
+        <a href="#" class="read-more">Продолжить чтение</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+<footer>
+  <p>&copy; 2024 Автомобильный центр. Все права защищены.</p>
+</footer>
+<div id="animation-container" class="car-animation"></div>
+<!-- Модальное окно -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div id="modal-car-content" class="carousel">
+      <img src="car1.jpg" alt="Image 1">
+      <img src="car1.jpg" alt="Image 2">
+    </div>
+  </div>
+</div>
+
+
+<script src="script.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="slider.js"></script>
+</body>
+</html>
